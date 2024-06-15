@@ -1,9 +1,11 @@
-import Main from "./pages";
-import './App.scss'
+import React from "react";
+import WordG from "./pages/WordG";
+import "./index.css";
+
 function App() {
   return (
     <div className="App">
-      <Main />
+      <WordG />
     </div>
   );
 }
