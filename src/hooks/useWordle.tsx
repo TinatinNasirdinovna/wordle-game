@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import useFetch from "./useFetch";
 
 export const useWordle = () => {
-  const [guesses, setGuesses] = useState<string[][]>(Array.from({ length: 6 }, () => Array(5).fill("")));
+  const [guesses, setGuesses] = useState<string[][]>(
+    Array.from({ length: 6 }, () => Array(5).fill(""))
+  );
   const [currentGuesses, setCurrentGuesses] = useState<string>("");
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [gameOver, setGameOver] = useState<boolean>(false);
@@ -66,13 +68,16 @@ export const useWordle = () => {
   }, [currentGuesses, currentIndex]);
 
   const getTileClass = (letter: string, col: number, row: number) => {
-    if (gameOver && guesses[row].join('') === word) {
+    if (gameOver && guesses[row].join("") === word ) {
       return "correct";
     }
-    if (word[col] === letter) {
-      return "correct";
+    if( word[col] === letter){
+      return 'correct'
     }
-    if (word.includes(letter)) {
+    if (word.includes(letter) && letter == "") {
+      return "white";
+    }
+    if (word.includes(letter) && letter) {
       return "present";
     }
     return "incorrect";

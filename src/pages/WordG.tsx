@@ -40,9 +40,10 @@ const WordG = () => {
               })}
             </div>
           ))}
+          {gameOver && <p style={{color: 'white'}}>Правильное слово: {word}</p>}
           {gameOver && (
             <div>
-              <p style={{color: 'white'}}>Правильное слово: {word}</p>
+              
               <button onClick={initializeGame}>Начать заново</button>
             </div>
           )}
